@@ -1,0 +1,5 @@
+domain: example.com
+layout:
+- quarkus.javaoperatorsdk.io/v1-alpha
+projectName: devnation
+version: "3"
