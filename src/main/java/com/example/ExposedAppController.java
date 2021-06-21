@@ -101,7 +101,9 @@ public class ExposedAppController implements ResourceController<ExposedApp> {
                     .build());
             log.info("Ingress {} handled", ingress.getMetadata().getName());
 
-            return UpdateControl.noUpdate();
+        final var hostname = ingress.getStatus().getLoadBalancer().getIngress().get(0).getHostname();
+        resource.setStatus(new ExposedAppStatus(hostname));
+        return UpdateControl.updateStatusSubResource(resource);
     }
 
     private ObjectMeta createMetadata(ExposedApp resource, Map<String, String> labels) {
