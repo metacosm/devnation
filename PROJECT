@@ -2,4 +2,11 @@ domain: example.com
 layout:
 - quarkus.javaoperatorsdk.io/v1-alpha
 projectName: devnation
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: example.com
+  kind: ExposedApp
+  version: v1alpha1
 version: "3"
