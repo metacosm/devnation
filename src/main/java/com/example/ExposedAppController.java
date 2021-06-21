@@ -108,6 +108,12 @@ public class ExposedAppController implements ResourceController<ExposedApp> {
         final var metadata = resource.getMetadata();
         return new ObjectMetaBuilder()
                 .withName(metadata.getName())
+                .addNewOwnerReference()
+                    .withUid(metadata.getUid())
+                    .withApiVersion(resource.getApiVersion())
+                    .withName(metadata.getName())
+                    .withKind(resource.getKind())
+                .endOwnerReference()
                 .withLabels(labels)
                 .build();
     }
