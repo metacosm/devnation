@@ -1,0 +1,6 @@
+apiVersion: "example.com/v1"
+kind: ExposedApp
+metadata:
+  name: hello-quarkus
+spec:
+  imageRef: localhost:5000/quarkus/hello
